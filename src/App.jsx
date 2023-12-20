@@ -26,6 +26,10 @@ const initialEvent = {
   title: '',
   start: '',
   end: '',
+  profesional: {
+    nombre: '',
+    color: '',
+  }
 };
 
 // ... (código previo)
@@ -35,7 +39,12 @@ const App = () => {
     title: '',
     start: '',
     end: '',
+    profesional: {
+      nombre: '',
+      color: '',
+    }
   });
+
   const [allEvents, setAllEvents] = useState([]);
 
   const handleAddEvent = (e) => {
@@ -46,6 +55,10 @@ const App = () => {
         title: '',
         start: '',
         end: '',
+        profesional: {
+          nombre: '',
+          color: '',
+        }
       });
     } else {
       alert('Por favor, completa todos los campos del evento.');
@@ -81,6 +94,26 @@ const App = () => {
           timeIntervals={15}
           dateFormat="MMMM d, yyyy h:mm aa"
         />
+        <select
+          value={newEvent.profesional.nombre}
+          onChange={(e) => setNewEvent({
+            ...newEvent,
+            profesional: {
+              nombre: e.target.value,
+              color: e.target.options[e.target.selectedIndex].dataset.color,
+            },
+          })}
+        >
+          <option value="" disabled>
+            Elige un profesional
+          </option>
+          <option value="Peluquero" data-color="#ffcc00">
+            Peluquero
+          </option>
+          <option value="Barbero" data-color="#3174ad">
+            Barbero
+          </option>
+        </select>
         <button type="submit">Agregar cita</button>
       </form>
       <Calendar
@@ -88,6 +121,12 @@ const App = () => {
         events={allEvents}
         startAccessor="start"
         endAccessor="end"
+        eventPropGetter={(event) => ({
+          style: {
+            backgroundColor: event.profesional.color,
+          },
+        })
+        }
         style={{ height: 500, margin: "50px" }}
       />
     </div>
