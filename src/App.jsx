@@ -22,18 +22,6 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const initialEvent = {
-  title: '',
-  start: '',
-  end: '',
-  profesional: {
-    nombre: '',
-    color: '',
-  }
-};
-
-// ... (código previo)
-
 const App = () => {
   const [newEvent, setNewEvent] = useState({
     title: '',
