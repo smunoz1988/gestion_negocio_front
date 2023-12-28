@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path='/' element={<NormalRoute />} />
+          <Route exact path='/' element={<Login />} />
           <Route exact path='/protected_route' element={<ProtectedRoute />} />
           <Route exact path='/signup' element={<Signup />} />
           <Route exact path='/login' element={<Login />} />

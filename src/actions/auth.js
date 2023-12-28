@@ -14,6 +14,11 @@ const getToken = () => {
   }
 };
 
+const removeToken = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("lastLoginTime");
+}
+
 export const signupUser = (credentials) => {
     return (dispatch) => {
       return fetch("http://localhost:3000/signup", {
@@ -43,7 +48,7 @@ export const signupUser = (credentials) => {
 
 export const loginUser = (credentials) => {
 return (dispatch) => {
-    return fetch("http://localhost:3001/login", {
+    return fetch("http://localhost:3000/login", {
     method: "POST",
     headers: {
         Accept: "application/json",
@@ -70,7 +75,7 @@ return (dispatch) => {
 
 export const logoutUser = () => {
 return (dispatch) => {
-    return fetch("http://localhost:3001/logout", {
+    return fetch("http://localhost:3000/logout", {
     method: "DELETE",
     headers: {
         Accept: "application/json",
@@ -79,6 +84,7 @@ return (dispatch) => {
     },
     }).then((res) => {
     if (res.ok) {
+        removeToken();
         return dispatch({ type: NOT_AUTHENTICATED });
     } else {
         return res.json().then((errors) => {

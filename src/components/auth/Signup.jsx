@@ -7,6 +7,7 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    password_confirmation: "",
     errors: { status: { message: "" } }
   });
   const dispatch = useDispatch();
@@ -21,9 +22,9 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { email, password } = formData;
+    const { email, password, password_confirmation } = formData;
 
-    dispatch(signupUser({ email, password }))
+    dispatch(signupUser({ email, password, password_confirmation }))
       .then(() => navigate("/")) // if using react-router for navigation
       .catch((errors) => setFormData({ ...formData, errors }));
   };
@@ -56,6 +57,19 @@ const Signup = () => {
           className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
           onChange={handleChange}
           value={formData.password}
+        />
+      </fieldset>
+      <fieldset>
+        <label className='block uppercase mb-2' htmlFor='password_confirmation'>
+          Password Confirmation:
+        </label>
+        <input
+          type='password'
+          name='password_confirmation'
+          id='password_confirmation'
+          className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+          onChange={handleChange}
+          value={formData.password_confirmation}
         />
       </fieldset>
       <input
