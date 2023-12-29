@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
+import NormalRoute from './components/NormalRoute';
 import { checkAuth } from './actions/auth';
+import { useSelector } from 'react-redux';
+import LoadingSpinner from './components/LoadingSpinner';
 
 
 const App = () => {
@@ -16,16 +19,32 @@ const App = () => {
     dispatch(checkAuth());
   }, [dispatch]);
 
+  const isAuth = useSelector(state => state.auth.loggedIn);
+  const isChecking = useSelector(state => state.auth.authChecked);
+
+  if (!isChecking) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <Router>
       <Routes>
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/' element={<Login />} />
-        <Route path="/protected" element={<ProtectedRoute />} />
+        {isAuth ? (
+          <>
+            <Route path='/' element={<ProtectedRoute />} />
+            <Route path="/protected" element={<ProtectedRoute />} />
+          </>
+        ) : (
+          <>
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/' element={<NormalRoute />} />
+          </>
+        )}
         <Route path='*' element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
   );
-}
+}  
 
 export default App;
