@@ -1,11 +1,17 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import Navbar from './Navbar'
-import Login from './auth/Login'
+import { checkAuth } from '../actions/auth'
 
-const ProtectedRoute = ({ authChecked, loggedIn, currentUser }) => {
+const ProtectedRoute = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
   const user = useSelector(state => state.auth.currentUser);
-  
+
   return (
     <>
       <Navbar currentUser={user} />

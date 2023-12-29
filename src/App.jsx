@@ -14,13 +14,13 @@ import LoadingSpinner from './components/LoadingSpinner';
 const App = () => {
   const dispatch = useDispatch();
  
-
   useEffect(() => {
     dispatch(checkAuth());
   }, [dispatch]);
 
   const isAuth = useSelector(state => state.auth.loggedIn);
   const isChecking = useSelector(state => state.auth.authChecked);
+  const user = useSelector(state => state.auth.currentUser);
 
   if (!isChecking) {
     return <LoadingSpinner />;
