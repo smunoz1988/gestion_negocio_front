@@ -1,23 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NormalRoute from './components/NormalRoute';
 import ProtectedRoute from './components/ProtectedRoute';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
-import Navbar from './components/NavBar';
+import WithAuth from './components/auth/WithAuth';
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route exact path='/' element={<Login />} />
-          <Route exact path='/protected_route' element={<ProtectedRoute />} />
-          <Route exact path='/signup' element={<Signup />} />
-          <Route exact path='/login' element={<Login />} />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path="/protected" element={<WithAuth(ProtectedRoute) />} />
+        <Route path='*' element={<h1>Not Found</h1>} />
+      </Routes>
+    </Router>
   );
 }
 
