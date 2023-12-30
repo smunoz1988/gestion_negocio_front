@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit} className='w-11/12 max-w-2xl mx-auto mt-8'>
       <h1 className='font-bold text-3xl mb-2'>Log In</h1>
-      <p className='h-8 text-red-400'>{formData.errors.status.message}</p>
+      {/* <p className='h-8 text-red-400'>{formData.errors.status.message}</p> */}
       <fieldset>
         <label className='block uppercase mb-2' htmlFor='email'>
           Email:

@@ -33,9 +33,10 @@ export const signupUser = (credentials) => {
           setToken(res.headers.get("Authorization"));
           return res
             .json()
-            .then((userJson) =>
-              dispatch({ type: AUTHENTICATED, payload: userJson })
-            );
+            .then((userJson) => {
+              const normalizedUser = { email: userJson.email || userJson.data.email };
+              dispatch({ type: AUTHENTICATED, payload: normalizedUser });
+        });
         } else {
           return res.json().then((errors) => {
             dispatch({ type: NOT_AUTHENTICATED });
@@ -46,32 +47,33 @@ export const signupUser = (credentials) => {
     };
   };
 
-export const loginUser = (credentials) => {
-return (dispatch) => {
-    return fetch("http://localhost:3000/login", {
-    method: "POST",
-    headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ user: credentials }),
-    }).then((res) => {
-    if (res.ok) {
-        setToken(res.headers.get("Authorization"));
-        return res
-        .json()
-        .then((userJson) =>
-            dispatch({ type: AUTHENTICATED, payload: userJson })
-        );
-    } else {
-        return res.json().then((errors) => {
-        dispatch({ type: NOT_AUTHENTICATED });
-        return Promise.reject(errors);
-        });
-    }
-    });
-};
-};
+  export const loginUser = (credentials) => {
+    return (dispatch) => {
+      return fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user: credentials }),
+      }).then((res) => {
+        if (res.ok) {
+          setToken(res.headers.get("Authorization"));
+          return res.json().then((userJson) => {
+            const normalizedUser = { email: userJson.email || userJson.data.email };
+            dispatch({ type: AUTHENTICATED, payload: normalizedUser });
+          });
+        } else {
+          return res.json().then((errors) => {
+            dispatch({ type: NOT_AUTHENTICATED });
+            // Here you can also dispatch another action to store the error messages in Redux store if needed.
+            return Promise.reject(errors);
+          });
+        }
+      });
+    };
+  };
+  
 
 export const logoutUser = () => {
 return (dispatch) => {
