@@ -10,7 +10,7 @@ const ProtectedRoute = () => {
   return (
     <>
       <Navbar />
-      <p>Hello, {user.email}</p>
+      <p>Hello, {user.name}</p>
       <h1>Full Calendar</h1>
     </>
   );

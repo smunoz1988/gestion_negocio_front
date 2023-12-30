@@ -8,6 +8,12 @@ const Signup = () => {
     email: "",
     password: "",
     password_confirmation: "",
+    name: "",
+    last_name: "",
+    document_id: "",
+    address: "",
+    phone: "",
+    role: "",
     errors: { status: { message: "" } }
   });
   const dispatch = useDispatch();
@@ -22,10 +28,10 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { email, password, password_confirmation } = formData;
+    const { email, password, password_confirmation, name, last_name, document_id, address, phone, role } = formData;
 
-    dispatch(signupUser({ email, password, password_confirmation }))
-      .then(() => navigate("/")) // if using react-router for navigation
+    dispatch(signupUser({ email, password, password_confirmation, name, last_name, document_id, address, phone, role }))
+      .then(() => navigate("/")) 
       .catch((errors) => setFormData({ ...formData, errors }));
   };
 
@@ -44,6 +50,7 @@ const Signup = () => {
           className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
           onChange={handleChange}
           value={formData.email}
+          required
         />
       </fieldset>
       <fieldset>
@@ -57,6 +64,7 @@ const Signup = () => {
           className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
           onChange={handleChange}
           value={formData.password}
+          required
         />
       </fieldset>
       <fieldset>
@@ -70,6 +78,77 @@ const Signup = () => {
           className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
           onChange={handleChange}
           value={formData.password_confirmation}
+          required
+        />
+      </fieldset>
+      <fieldset>
+        <label className='block uppercase mb-2' htmlFor='name'>
+          Name:
+        </label>
+        <input
+          type='text'
+          name='name'
+          id='name'
+          className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+          onChange={handleChange}
+          value={formData.name}
+          required
+        />
+      </fieldset>
+      <fieldset>
+        <label className='block uppercase mb-2' htmlFor='last_name'>
+          Last Name:
+        </label>
+        <input
+          type='text'
+          name='last_name'
+          id='last_name'
+          className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+          onChange={handleChange}
+          value={formData.last_name}
+          required
+        />
+      </fieldset>
+      <fieldset>
+        <label className='block uppercase mb-2' htmlFor='document_id'>
+          Document ID:
+        </label>
+        <input
+          type='text'
+          name='document_id'
+          id='document_id'
+          className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+          onChange={handleChange}
+          value={formData.document_id}
+          required
+        />
+      </fieldset>
+      <fieldset>
+        <label className='block uppercase mb-2' htmlFor='address'>
+          Address:
+        </label>
+        <input
+          type='text'
+          name='address'
+          id='address'
+          className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+          onChange={handleChange}
+          value={formData.address}
+          required
+        />
+      </fieldset>
+      <fieldset>
+        <label className='block uppercase mb-2' htmlFor='phone'>
+          Phone:
+        </label>
+        <input
+          type='text'
+          name='phone'
+          id='phone'
+          className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+          onChange={handleChange}
+          value={formData.phone}
+          required
         />
       </fieldset>
       <input

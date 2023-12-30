@@ -34,7 +34,7 @@ export const signupUser = (credentials) => {
           return res
             .json()
             .then((userJson) => {
-              const normalizedUser = { email: userJson.email || userJson.data.email };
+              const normalizedUser = { name: userJson.name || userJson.data.name };
               dispatch({ type: AUTHENTICATED, payload: normalizedUser });
         });
         } else {
@@ -60,7 +60,7 @@ export const signupUser = (credentials) => {
         if (res.ok) {
           setToken(res.headers.get("Authorization"));
           return res.json().then((userJson) => {
-            const normalizedUser = { email: userJson.email || userJson.data.email };
+            const normalizedUser = { name: userJson.name || userJson.data.name };
             dispatch({ type: AUTHENTICATED, payload: normalizedUser });
           });
         } else {
