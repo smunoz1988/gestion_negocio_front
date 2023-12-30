@@ -66,7 +66,6 @@ export const signupUser = (credentials) => {
         } else {
           return res.json().then((errors) => {
             dispatch({ type: NOT_AUTHENTICATED });
-            // Here you can also dispatch another action to store the error messages in Redux store if needed.
             return Promise.reject(errors);
           });
         }
