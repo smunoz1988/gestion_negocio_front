@@ -1,9 +1,7 @@
-const SideBar = () => {
-  return (
-    <div className="side-bar">
+const SideBar = () => (
+  <div className="side-bar">
     <h2>SideBar</h2>
-    </div>
-  );
-}
+  </div>
+);
 
 export default SideBar;

@@ -6,21 +6,20 @@ const NormalRoute = () => {
 
   const handleLoginClick = () => {
     navigate('/Login');
-  }
+  };
 
-  
   const handleSignupClick = () => {
     navigate('/Signup');
-  }
+  };
 
   return (
     <>
       <h1>Normal Route</h1>
       <p>Aca podria haber una bienvenida al usuario</p>
-      <button onClick={handleLoginClick}>Login</button>
-      <button onClick={handleSignupClick}>Register</button>
+      <button onClick={handleLoginClick} type="button">Login</button>
+      <button onClick={handleSignupClick} type="button">Register</button>
     </>
   );
-}
+};
 
-export default NormalRoute
+export default NormalRoute;
