@@ -14,6 +14,7 @@ const Signup = () => {
     address: "",
     phone: "",
     role: "",
+    sede: "",
     errors: { status: { message: "" } }
   });
   const dispatch = useDispatch();
@@ -28,9 +29,9 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { email, password, password_confirmation, name, last_name, document_id, address, phone, role } = formData;
+    const { email, password, password_confirmation, name, last_name, document_id, address, phone, role, sede } = formData;
 
-    dispatch(signupUser({ email, password, password_confirmation, name, last_name, document_id, address, phone, role }))
+    dispatch(signupUser({ email, password, password_confirmation, name, last_name, document_id, address, phone, role, sede }))
       .then(() => navigate("/")) 
       .catch((errors) => setFormData({ ...formData, errors }));
   };
@@ -148,6 +149,20 @@ const Signup = () => {
           className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
           onChange={handleChange}
           value={formData.phone}
+          required
+        />
+      </fieldset>
+      <fieldset>
+        <label className='block uppercase mb-2' htmlFor='sede'>
+          Sede:
+        </label>
+        <input
+          type='text'
+          name='sede'
+          id='sede'
+          className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+          onChange={handleChange}
+          value={formData.sede}
           required
         />
       </fieldset>

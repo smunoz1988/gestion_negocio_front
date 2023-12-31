@@ -1,17 +1,13 @@
 import React from 'react'
-import { useSelector} from 'react-redux'
-import Navbar from './Navbar'
+import Navbar from './NavBar'
+import SideBar from './SideBar';
 
-const ProtectedRoute = () => {
-
-  const user = useSelector(state => state.auth.currentUser);
-  console.log('protected', user);
-  
+const ProtectedRoute = () => {  
   return (
     <>
       <Navbar />
-      <p>Hello, {user.name}</p>
-      <h1>Full Calendar</h1>
+      <SideBar />
+      <h1>Elemento cambiable</h1>
     </>
   );
 }
