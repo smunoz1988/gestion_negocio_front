@@ -7,7 +7,6 @@ import Login from './components/auth/Login';
 import NormalRoute from './components/NormalRoute';
 import { checkAuth } from './actions/auth';
 import LoadingSpinner from './components/LoadingSpinner';
-import Professionals from './components/professionals/professionals';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,9 +27,8 @@ const App = () => {
       <Routes>
         {isAuth ? (
           <>
-            <Route path="/" element={<ProtectedRoute />} />
-            <Route path="/protected" element={<ProtectedRoute />} />
-            <Route path="/professionals" element={<Professionals />} />
+            <Route path="/*" element={<ProtectedRoute />} />
+
           </>
         ) : (
           <>
