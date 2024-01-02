@@ -6,7 +6,9 @@ const ProtectedRoute = () => (
   <>
     <Navbar />
     <SideBar />
-    <h1>Elemento cambiable</h1>
+    <div className="content-app">
+      <h1>Elemento cambiable</h1>
+    </div>
   </>
 );
 
