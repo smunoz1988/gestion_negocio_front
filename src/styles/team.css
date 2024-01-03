@@ -15,7 +15,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .form_group {
@@ -24,7 +23,6 @@
   justify-content: space-between;
   align-items: center;
   margin: 2rem;
-
 }
 
 .member {
@@ -61,6 +59,6 @@ td {
   width: 4rem;
   height: 4rem;
   padding: 0.5rem;
-  border: solid lightblue 3px; 
+  border: solid lightblue 3px;
   border-radius: 50%;
 }

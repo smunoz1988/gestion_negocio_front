@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createProfessional, getAllProfessionals } from '../../../actions/teams/thunksteam';
@@ -23,31 +23,30 @@ const AddNewProfessional = () => {
       ...formData,
       [event.target.name]: event.target.value,
     });
-  }
+  };
 
   const handleBack = () => {
     navigate('/team');
   };
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await dispatch(createProfessional(formData));
       await dispatch(getAllProfessionals());
       navigate('/team');
     } catch (error) {
-        console.log(error);
-        setFormData({
-          ...formData,
-          errors: error.response.data,
+      setFormData({
+        ...formData,
+        errors: error.response.data,
       });
     }
   };
 
   return (
     <>
-      <div className='back_container'>
-        <button onClick={handleBack}>back</button>
+      <div className="back_container">
+        <button type="button" onClick={handleBack}>back</button>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="form_group">

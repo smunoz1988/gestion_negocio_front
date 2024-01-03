@@ -23,4 +23,4 @@ export const createProfessional = (data) => async (dispatch) => {
   } catch (error) {
     dispatch(rejected(error.response) || '');
   }
-}
+};

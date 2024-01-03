@@ -5,12 +5,12 @@ import { logoutUser } from '../../actions/auth';
 
 const Logout = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // if you're using react-router for navigation
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     dispatch(logoutUser())
       .then(() => navigate('/'))
-      .catch((errors) => console.log(errors));
+      .catch((errors) => (errors));
   };
 
   return (
