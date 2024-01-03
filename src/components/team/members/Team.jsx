@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import getAllProfessionals from '../../../actions/teams/thunksteam';
 import LoadingSpinner from '../../LoadingSpinner';
 import '../../../styles/team.css';
@@ -14,11 +15,17 @@ const Team = () => {
     dispatch(getAllProfessionals());
   }, [dispatch]);
 
+  const navigate = useNavigate();
+
+  const handleAddNewProfessional = () => {
+    navigate('/add_professional');
+  }
+
   return (
     <>
       <div className='title_container'>
         <h3 className='team_title'>Team of Professionals</h3>
-        <button className="btn btn-primary">Add new</button>
+        <button className="btn btn-primary" onClick={handleAddNewProfessional}>Add new</button>
       </div>
       
       <div className="team">
