@@ -1,5 +1,7 @@
+import myImage from '../../calendar.png'
+
 const Calendar = () => (
-  <h3>calendar</h3>
+  <img src={myImage} alt="Calendar" style={{ maxWidth: '100%', height: 'auto' }} />
 );
 
 export default Calendar;

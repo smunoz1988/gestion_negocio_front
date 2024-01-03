@@ -4,15 +4,17 @@ const SideBar = () => (
   <div className="side-bar-container">
     <ul>
       <li>
-        <Link to="/team">professionals</Link>
+        <Link to="/">Calendar</Link>
       </li>
       <li>
-        <Link to="/test">test</Link>
+        <Link to="/services">Services</Link>
       </li>
       <li>
-        <Link to="/">calendar</Link>
+        <Link to="/clients">Clients</Link>
       </li>
-
+      <li>
+        <Link to="/team">Professionals</Link>
+      </li>
     </ul>
 
     {/* <Link>professionals</Link>

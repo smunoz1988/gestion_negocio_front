@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import getAllProfessionals from '../../../actions/teams/thunksteam';
 import LoadingSpinner from '../../LoadingSpinner';
+import '../../../styles/team.css';
+import { GiPlagueDoctorProfile } from "react-icons/gi";
 
 const Team = () => {
   const dispatch = useDispatch();
@@ -14,19 +16,41 @@ const Team = () => {
 
   return (
     <>
-      <h3>Team of Professionals</h3>
+      <div className='title_container'>
+        <h3 className='team_title'>Team of Professionals</h3>
+        <button className="btn btn-primary">Add new</button>
+      </div>
+      
       <div className="team">
         {pending ? (
 
           <LoadingSpinner />
         ) : (
 
-          professionals.professionals.map((professional) => (
-            <div className="member" key={professional.id}>
-              <h4>{professional.name}</h4>
-              <p>{professional.document_id}</p>
-            </div>
-          ))
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Document ID</th>
+                <th>Contact</th>
+                <th>Role</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {professionals.professionals.map((professional) => (
+                <tr key={professional.id}>
+                  <td><GiPlagueDoctorProfile /></td>
+                  <td>{professional.name} {professional.last_name}</td>
+                  <td>{professional.document_id}</td>
+                  <td>{professional.email} <br/> {professional.phone}</td>
+                  <td>{professional.role}</td>
+                  <td><button className="btn btn-primary">Actions</button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </>

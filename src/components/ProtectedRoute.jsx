@@ -4,8 +4,9 @@ import Navbar from './layouts/NavBar';
 import SideBar from './layouts/SideBar';
 import '../styles/protected.css';
 import Team from './team/members/Team';
-import Test from './team/Test';
+import Clients from './clients/Clients';
 import Calendar from './calendar/Calendar';
+import Services from './services/Services';
 
 const ProtectedRoute = () => (
   <div className="container">
@@ -20,8 +21,8 @@ const ProtectedRoute = () => (
         <Routes>
           <Route path="/" element={<Calendar />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/test" element={<Test />} />
-          {/* Add more Route components for other components */}
+          <Route path="/services" element={<Services />} />
+          <Route path="/clients" element={<Clients />} />
         </Routes>
       </div>
     </div>
