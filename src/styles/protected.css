@@ -3,6 +3,7 @@
     grid-template-columns: 200px 1fr; 
     grid-template-rows: 60px 1fr; 
     height: 100vh; 
+   
   }
 
   .navbar {
@@ -20,4 +21,21 @@
   
   .main-content {
     grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .container-protected-route{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+  .side-bar-container{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }

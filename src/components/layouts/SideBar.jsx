@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const SideBar = () => (
-  <div className="side-bar">
-    <h2>SideBar</h2>
+  <div className="side-bar-container">
     <ul>
       <li>
         <Link to="/team">professionals</Link>
