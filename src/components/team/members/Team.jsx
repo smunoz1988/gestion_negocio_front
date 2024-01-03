@@ -48,7 +48,7 @@ const Team = () => {
             <tbody>
               {professionals.professionals.map((professional) => (
                 <tr key={professional.id}>
-                  <td><GiPlagueDoctorProfile /></td>
+                  <td><GiPlagueDoctorProfile className='professioanl_photo' /></td>
                   <td>{professional.name} {professional.last_name}</td>
                   <td>{professional.document_id}</td>
                   <td>{professional.email} <br/> {professional.phone}</td>

@@ -25,3 +25,11 @@ th {
 td {
   padding: 1rem 2rem;
 }
+
+.professioanl_photo {
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5rem;
+  border: solid lightblue 3px; 
+  border-radius: 50%;
+}
