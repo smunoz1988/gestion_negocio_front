@@ -8,7 +8,6 @@ const getAllProfessionals = () => async (dispatch) => {
 
   try {
     const response = await axios.get(`${baseUrl}/professionals`);
-    console.log('dispatch axios', response.data);
     dispatch(fulfilled(response.data));
   } catch (error) {
     dispatch(rejected(error.response) || '');

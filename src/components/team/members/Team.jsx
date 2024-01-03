@@ -7,7 +7,6 @@ const Team = () => {
   const dispatch = useDispatch();
   const professionals = useSelector((state) => state.professional);
   const pending = useSelector((state) => state.professional.status === 'checking');
-  console.log('professionals', professionals);
 
   useEffect(() => {
     dispatch(getAllProfessionals());
