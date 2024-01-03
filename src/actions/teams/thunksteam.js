@@ -3,7 +3,7 @@ import baseUrl from '../../api/apiUrl';
 import { pending, fulfilled, rejected } from '../../reducers/team';
 
 // function that displays all the professionals
-const getAllProfessionals = () => async (dispatch) => {
+export const getAllProfessionals = () => async (dispatch) => {
   dispatch(pending());
 
   try {
@@ -14,4 +14,13 @@ const getAllProfessionals = () => async (dispatch) => {
   }
 };
 
-export default getAllProfessionals;
+export const createProfessional = (data) => async (dispatch) => {
+  dispatch(pending());
+
+  try {
+    const response = await axios.post(`${baseUrl}/professionals`, data);
+    dispatch(fulfilled(response.data));
+  } catch (error) {
+    dispatch(rejected(error.response) || '');
+  }
+}

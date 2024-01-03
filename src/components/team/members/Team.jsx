@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import getAllProfessionals from '../../../actions/teams/thunksteam';
+import { getAllProfessionals } from '../../../actions/teams/thunksteam';
 import LoadingSpinner from '../../LoadingSpinner';
 import '../../../styles/team.css';
 import { GiPlagueDoctorProfile } from "react-icons/gi";
@@ -30,34 +30,36 @@ const Team = () => {
       
       <div className="team">
         {pending ? (
-
           <LoadingSpinner />
         ) : (
-
-          <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Document ID</th>
-                <th>Contact</th>
-                <th>Role</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {professionals.professionals.map((professional) => (
-                <tr key={professional.id}>
-                  <td><GiPlagueDoctorProfile className='professioanl_photo' /></td>
-                  <td>{professional.name} {professional.last_name}</td>
-                  <td>{professional.document_id}</td>
-                  <td>{professional.email} <br/> {professional.phone}</td>
-                  <td>{professional.role}</td>
-                  <td><button className="btn btn-primary">Actions</button></td>
+          professionals.professionals.length === 0 ? (
+            <p className="no_professionals">No professionals found</p>
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Document ID</th>
+                  <th>Contact</th>
+                  <th>Role</th>
+                  <th></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {professionals.professionals.map((professional) => (
+                  <tr key={professional.id}>
+                    <td><GiPlagueDoctorProfile className='professional_photo' /></td>
+                    <td>{professional.name} {professional.last_name}</td>
+                    <td>{professional.document_id}</td>
+                    <td>{professional.email} <br/> {professional.phone}</td>
+                    <td>{professional.role}</td>
+                    <td><button className="btn btn-primary">Actions</button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )
         )}
       </div>
     </>
