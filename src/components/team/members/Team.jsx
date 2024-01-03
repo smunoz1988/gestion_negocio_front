@@ -1,5 +1,6 @@
 const Team = () => (
-  <h3>team</h3>
+  <h3>team of professionals</h3>
+
 );
 
 export default Team;
