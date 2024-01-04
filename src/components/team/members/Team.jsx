@@ -21,6 +21,10 @@ const Team = () => {
     navigate('/add_professional');
   };
 
+  const handleViewProfessional = (id) => {
+    navigate(`/professional/${id}`);
+  };
+
   const renderTeamContent = () => {
     if (pending) {
       return <LoadingSpinner />;
@@ -44,7 +48,7 @@ const Team = () => {
         </thead>
         <tbody>
           {professionals.professionals.map((professional) => (
-            <tr key={professional.id}>
+            <tr key={professional.id} onClick={() => handleViewProfessional(professional.id)}>
               <td><GiPlagueDoctorProfile className="professional_photo" aria-label="Profile Picture" /></td>
               <td>
                 {professional.name}
