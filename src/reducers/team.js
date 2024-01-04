@@ -5,6 +5,7 @@ export const professionalsSlice = createSlice({
   initialState: {
     status: 'checking',
     professionals: [],
+    professional: {},
     errorMessage: undefined,
   },
 
@@ -21,6 +22,12 @@ export const professionalsSlice = createSlice({
       professionals: payload,
       errorMessage: undefined,
     }),
+    fullfiledById: (state, { payload }) => ({
+      ...state,
+      status: 'succceded',
+      professional: payload,
+      errorMessage: undefined,
+    }),
     rejected: (state, { payload }) => ({
       ...state,
       status: 'failed',
@@ -32,5 +39,5 @@ export const professionalsSlice = createSlice({
 
 });
 export const {
-  pending, fulfilled, rejected,
+  pending, fulfilled, rejected, fullfiledById,
 } = professionalsSlice.actions;
