@@ -148,7 +148,7 @@ const AddNewProfessional = () => {
             id="birthday"
             className="form-control"
             onChange={handleChange}
-            value={formData.birthday}
+            value={formData.birthday || ''}
             required
           />
         </div>
