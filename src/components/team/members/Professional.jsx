@@ -1,13 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { GiPlagueDoctorProfile } from 'react-icons/gi';
 import { getProfessionalById } from '../../../actions/teams/thunksteam';
 
 const Professional = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const navigate = useNavigate();
   const { professional } = useSelector((state) => state.professional);
+
+  const handleEditProfessional = (id) => {
+    navigate(`/edit_professional/${id}`);
+  };
 
   useEffect(() => {
     dispatch(getProfessionalById(id));
@@ -31,6 +36,8 @@ const Professional = () => {
       <p>{professional.phone}</p>
       <p>{professional.address}</p>
       <p>{professional.birthdate}</p>
+
+      <button type="button" onClick={() => { handleEditProfessional(id); }}>Edit</button>
 
     </>
 

@@ -9,6 +9,7 @@ import Clients from './clients/Clients';
 import Calendar from './calendar/Calendar';
 import Services from './services/Services';
 import Professional from './team/members/Professional';
+import EditProfessional from './team/members/EditProfessional';
 
 const ProtectedRoute = () => (
   <div className="container">
@@ -27,6 +28,7 @@ const ProtectedRoute = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/professional/:id" element={<Professional />} />
+          <Route path="/edit_professional/:id" element={<EditProfessional />} />
         </Routes>
       </div>
     </div>
