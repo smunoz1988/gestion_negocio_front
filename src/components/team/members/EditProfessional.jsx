@@ -18,7 +18,7 @@ const EditProfessional = () => {
     phone: '',
     role: '',
     address: '',
-    birthdate: '',
+    birthday: '',
     errors: { status: { message: '' } },
   });
 

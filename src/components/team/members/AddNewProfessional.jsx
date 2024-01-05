@@ -12,7 +12,7 @@ const AddNewProfessional = () => {
     phone: '',
     role: '',
     address: '',
-    birthdate: '',
+    birthday: '',
     errors: { status: { message: '' } },
   });
   const dispatch = useDispatch();
