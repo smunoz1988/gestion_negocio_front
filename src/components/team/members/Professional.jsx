@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { GiPlagueDoctorProfile } from 'react-icons/gi';
-import { getProfessionalById } from '../../../actions/teams/thunksteam';
+import { getProfessionalById, getAllProfessionals, deleteProfessional } from '../../../actions/teams/thunksteam';
 
 const Professional = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,16 @@ const Professional = () => {
 
   const handleEditProfessional = (id) => {
     navigate(`/edit_professional/${id}`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await dispatch(deleteProfessional(id));
+      await dispatch(getAllProfessionals());
+      navigate('/team');
+    } catch (error) {
+      throw new Error(error);
+    }
   };
 
   useEffect(() => {
@@ -38,6 +48,7 @@ const Professional = () => {
       <p>{professional.birthdate}</p>
 
       <button type="button" onClick={() => { handleEditProfessional(id); }}>Edit</button>
+      <button type="button" onClick={() => { handleDelete(id); }}>delete professional</button>
 
     </>
 

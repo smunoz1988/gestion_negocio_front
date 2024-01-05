@@ -47,10 +47,21 @@ export const updateProfessional = (id, data) => async (dispatch) => {
 
   try {
     const response = await axios.put(`${baseUrl}/professionals/${id}`, data);
-    console.log(response.data);
     return response.data;
   } catch (error) {
     dispatch(rejected(error.response) || '');
   }
   return null;
+};
+
+// function that deletes a professional
+export const deleteProfessional = (id) => async (dispatch) => {
+  dispatch(pending());
+
+  try {
+    const response = await axios.delete(`${baseUrl}/professionals/${id}`);
+    dispatch(fullfiledById(response.data));
+  } catch (error) {
+    dispatch(rejected(error.response) || '');
+  }
 };

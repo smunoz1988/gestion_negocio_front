@@ -186,4 +186,5 @@ const EditProfessional = () => {
     </div>
   );
 };
+
 export default EditProfessional;
