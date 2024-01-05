@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import NormalRoute from './components/NormalRoute';
 import { checkAuth } from './actions/auth';
 import LoadingSpinner from './components/LoadingSpinner';
+import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -27,8 +28,8 @@ const App = () => {
       <Routes>
         {isAuth ? (
           <>
-            <Route path="/" element={<ProtectedRoute />} />
-            <Route path="/protected" element={<ProtectedRoute />} />
+            <Route path="/*" element={<ProtectedRoute />} />
+
           </>
         ) : (
           <>

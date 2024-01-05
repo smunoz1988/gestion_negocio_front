@@ -25,7 +25,7 @@ const Login = () => {
     const { email, password } = formData;
 
     dispatch(loginUser({ email, password }))
-      .then(() => navigate('/protected')) // if using react-router for navigation
+      .then(() => navigate('/')) // if using react-router for navigation
       .catch((errors) => setFormData({ ...formData, errors }));
   };
 

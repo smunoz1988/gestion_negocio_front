@@ -1,0 +1,64 @@
+.title_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+}
+
+.back_container {
+  width: 100%;
+}
+
+.team {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+}
+
+.member {
+  border: solid black 1px;
+}
+
+.team_title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 2rem;
+}
+
+th {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 1rem 2rem;
+}
+
+td {
+  padding: 1rem 2rem;
+}
+
+.no_professionals {
+  font-size: 1.2em;
+  padding: 1rem 2rem;
+  color: #3e99fa;
+  margin: 2rem;
+  border: solid black 1px;
+  border-radius: 1rem;
+  background-color: #031633;
+}
+
+.professional_photo {
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5rem;
+  border: solid lightblue 3px;
+  border-radius: 50%;
+}
