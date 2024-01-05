@@ -39,3 +39,18 @@ export const getProfessionalById = (id) => async (dispatch) => {
     dispatch(rejected(error.response) || '');
   }
 };
+
+// function that updates a professional
+
+export const updateProfessional = (id, data) => async (dispatch) => {
+  dispatch(pending());
+
+  try {
+    const response = await axios.put(`${baseUrl}/professionals/${id}`, data);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    dispatch(rejected(error.response) || '');
+  }
+  return null;
+};
