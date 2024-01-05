@@ -41,7 +41,7 @@ const Professional = () => {
 
   const handleBack = () => {
     navigate('/team');
-  }
+  };
 
   useEffect(() => {
     dispatch(getProfessionalById(id));
